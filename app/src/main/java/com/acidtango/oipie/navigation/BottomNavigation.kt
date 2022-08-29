@@ -75,6 +75,16 @@ fun BottomNavigationBar(navController: NavController) {
                 Spacer(modifier = Modifier.height(20.dp))
                 Surface(
                     onClick = {
+                        navController.navigate(item.route) {
+
+                            navController.graph.startDestinationRoute?.let { screen_route ->
+                                popUpTo(screen_route) {
+                                    saveState = true
+                                }
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
                         Log.d("FWEHJKFHWER", item.route)
                     },
                     shape = RoundedCornerShape(5.dp)

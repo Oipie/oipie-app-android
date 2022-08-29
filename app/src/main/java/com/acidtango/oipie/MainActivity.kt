@@ -47,6 +47,26 @@ class MainActivity : ComponentActivity() {
                                 Text(text = "HELLO WORLD")
                             }
                         }
+                        composable(Route.SEARCH) {
+                            Surface {
+                                Text(text = "HELLO SEARCH")
+                            }
+                        }
+                        composable(Route.FAVORITES) {
+                            Surface {
+                                Text(text = "HELLO FAVORITES")
+                            }
+                        }
+                        composable(Route.MY_RECEIPTS) {
+                            Surface {
+                                Text(text = "HELLO MY RECEIPTS")
+                            }
+                        }
+                        composable(Route.PROFILE) {
+                            Surface {
+                                Text(text = "HELLO PROFILE")
+                            }
+                        }
                     }
                 }
             }
