@@ -1,4 +1,4 @@
-package com.acidtango.oipie.ui.theme
+package com.acidtango.core_ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
