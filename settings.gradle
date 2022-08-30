@@ -15,3 +15,13 @@ dependencyResolutionManagement {
 rootProject.name = "Oipie"
 include ':app'
 include ':core-ui'
+include ':search'
+include ':search:search_presentation'
+include ':favorites'
+include ':favorites:favorites_presentation'
+include ':home'
+include ':home:home_presentation'
+include ':profile'
+include ':profile:profile_presentation'
+include ':receipts'
+include ':receipts:receipts_presentation'
