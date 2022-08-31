@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.acidtango.oipie">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".Oipie"
         android:allowBackup="true"
