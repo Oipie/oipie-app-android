@@ -67,8 +67,9 @@ fun BottomNavigationBar(navController: NavController) {
             .fillMaxWidth()
             .border(
                 border = ButtonDefaults.outlinedBorder,
-                shape = RoundedCornerShape(45.dp, 45.dp, 0.dp, 0.dp)
+                shape = RoundedCornerShape(30.dp, 30.dp, 0.dp, 0.dp)
             )
+            .background(Color.Transparent)
             .padding(PaddingValues(horizontal = 25.dp)),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween

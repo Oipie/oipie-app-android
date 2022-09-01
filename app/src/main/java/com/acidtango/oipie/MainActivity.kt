@@ -22,7 +22,9 @@ import com.acidtango.oipie.navigation.Route
 import com.acidtango.profile_presentation.ProfileScreen
 import com.acidtango.receipts_presentation.ReceiptsScreen
 import com.acidtango.search_presentation.SearchScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

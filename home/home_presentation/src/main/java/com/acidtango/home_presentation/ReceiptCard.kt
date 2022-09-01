@@ -1,7 +1,6 @@
 package com.acidtango.home_presentation
 
 import android.util.Log
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,7 +25,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
-import coil.size.Size
 import com.acidtango.core_ui.R
 import com.acidtango.core_ui.theme.OipieTheme
 import com.acidtango.home_presentation.components.InfoReceipt
@@ -34,28 +32,24 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.FabPosition
 import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Scaffold
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.zIndex
 import coil.size.Scale
+import com.acidtango.home_domain.ReceiptDetail
 
 @Composable
-fun ReceiptCard(imageUrl: String, modifier: Modifier = Modifier) {
+fun ReceiptCard(receipt: ReceiptDetail, modifier: Modifier = Modifier) {
 
     val painter = rememberAsyncImagePainter(
         model = ImageRequest.Builder(LocalContext.current)
-            .data(imageUrl)
+            .data(receipt.cover)
             .scale(Scale.FILL)
             .build()
     )
@@ -82,7 +76,11 @@ fun ReceiptCard(imageUrl: String, modifier: Modifier = Modifier) {
                     .size(circleBtnSize),
                 backgroundColor = Color.White,
             ) {
-                Icon(painterResource(id = R.drawable.ic_heart_empty), "", tint = Color.Unspecified)
+                Icon(
+                    painterResource(id = if (receipt.favourite) R.drawable.ic_heart_filled else R.drawable.ic_heart_empty),
+                    "",
+                    tint = Color.Unspecified
+                )
             }
         }
 
@@ -109,19 +107,22 @@ fun ReceiptCard(imageUrl: String, modifier: Modifier = Modifier) {
                 )
                 Spacer(Modifier.height(40.dp))
                 Text(
-                    "Slutty Pumpkin".uppercase(),
+                    receipt.name.uppercase(),
                     style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 16.sp)
                 )
                 Spacer(Modifier.height(10.dp))
 
                 Row() {
-                    InfoReceipt(icon = R.drawable.ic_heart, value = "- 245")
+                    InfoReceipt(icon = R.drawable.ic_heart, value = "- ${receipt.favouriteAmount}")
                     Spacer(
                         Modifier
                             .width(35.dp)
                             .height(1.dp)
                     )
-                    InfoReceipt(icon = R.drawable.ic_timer_v2, value = "- 15 min.")
+                    InfoReceipt(
+                        icon = R.drawable.ic_timer_v2,
+                        value = "- ${receipt.preparationTime}"
+                    )
                 }
 
                 Spacer(Modifier.height(40.dp))
@@ -135,6 +136,15 @@ fun ReceiptCard(imageUrl: String, modifier: Modifier = Modifier) {
 @Composable
 fun PreviewReceiptCard() {
     OipieTheme() {
-        ReceiptCard(imageUrl = "https://static.wikia.nocookie.net/himym/images/8/82/Barney%27s_costume.png")
+        ReceiptCard(
+            receipt = ReceiptDetail(
+                id = "b16d63bf-39eb-45bd-bfbd-7631220ae3f2",
+                name = "Pumpkin soup",
+                cover = "https://i.imgur.com/ISxVZHA.png",
+                favourite = false,
+                favouriteAmount = 254,
+                preparationTime = 900000,
+            )
+        )
     }
 }

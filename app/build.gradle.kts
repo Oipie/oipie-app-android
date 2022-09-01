@@ -69,6 +69,7 @@ android {
 dependencies {
     implementation(project(Modules.coreUi))
     implementation(project(Modules.home_presentation))
+    implementation(project(Modules.home_domain))
     implementation(project(Modules.search_presentation))
     implementation(project(Modules.favorites_presentation))
     implementation(project(Modules.receipts_presentation))
