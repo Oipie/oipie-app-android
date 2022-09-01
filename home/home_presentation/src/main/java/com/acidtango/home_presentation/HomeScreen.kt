@@ -20,10 +20,9 @@ fun HomeScreen() {
             .padding(bottom = 90.dp)
     ) {
         Box(contentAlignment = Alignment.Center) {
-
             ReceiptCard(
-                imageUrl = "https://assets3.cbsnewsstatic.com/hub/i/r/2011/10/31/a9fc7282-a643-11e2-a3f0-029118418759/thumbnail/1200x630/9d595d8b5b0fd433d162fccc6ba7fe1a/101057_01405b.jpg",
-                modifier = Modifier.padding(horizontal = 40.dp)
+                imageUrl = "https://i.imgur.com/ISxVZHA.png",
+                modifier = Modifier.padding(horizontal = 24.dp)
             )
         }
     }

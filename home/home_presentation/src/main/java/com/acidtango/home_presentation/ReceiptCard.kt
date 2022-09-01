@@ -44,6 +44,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.zIndex
@@ -64,10 +65,9 @@ fun ReceiptCard(imageUrl: String, modifier: Modifier = Modifier) {
         mutableStateOf(0.dp)
     }
 
-    val circleBtnSize = 81.dp
+    val circleBtnSize = 56.dp
     Box(
         modifier = modifier
-            .fillMaxWidth()
     ) {
         Box(
             modifier = Modifier
@@ -87,6 +87,7 @@ fun ReceiptCard(imageUrl: String, modifier: Modifier = Modifier) {
         }
 
         Card(
+            Modifier.fillMaxWidth(),
             elevation = 4.dp,
             shape = RoundedCornerShape(20.dp),
         ) {
@@ -96,7 +97,9 @@ fun ReceiptCard(imageUrl: String, modifier: Modifier = Modifier) {
                 Image(
                     painter = painter,
                     contentDescription = null,
+                    contentScale = ContentScale.Crop,
                     modifier = Modifier
+                        .fillMaxWidth()
                         .heightIn(min = 0.dp, max = 400.dp)
                         .onGloballyPositioned { coordinates ->
                             heightIs =
@@ -118,7 +121,7 @@ fun ReceiptCard(imageUrl: String, modifier: Modifier = Modifier) {
                             .width(35.dp)
                             .height(1.dp)
                     )
-                    InfoReceipt(icon = R.drawable.ic_timer, value = "- 15 min.")
+                    InfoReceipt(icon = R.drawable.ic_timer_v2, value = "- 15 min.")
                 }
 
                 Spacer(Modifier.height(40.dp))
