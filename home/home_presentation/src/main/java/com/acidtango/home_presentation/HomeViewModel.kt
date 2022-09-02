@@ -5,10 +5,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.acidtango.home_domain.GetReceiptsUseCase
 import com.acidtango.home_domain.Meta
 import com.acidtango.home_domain.Receipts
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,8 +23,11 @@ class HomeViewModel
         private set
 
     init {
-        receipts = receiptsUseCase()
+        viewModelScope.launch {
+            receipts = receiptsUseCase()
+            Log.d("JWREGKGE", receipts.toString())
+        }
 
-        Log.d("JWREGKGE", receipts.toString())
+
     }
 }

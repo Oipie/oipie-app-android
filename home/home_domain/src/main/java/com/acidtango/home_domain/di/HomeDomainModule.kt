@@ -1,6 +1,7 @@
 package com.acidtango.home_domain.di
 
 import com.acidtango.home_domain.GetReceiptsUseCase
+import com.acidtango.home_domain.ReceiptRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +14,7 @@ object HomeDomainModule {
 
     @ViewModelScoped
     @Provides
-    fun provideReceiptsUseCase(): GetReceiptsUseCase {
-        return GetReceiptsUseCase()
+    fun provideReceiptsUseCase(repository: ReceiptRepository): GetReceiptsUseCase {
+        return GetReceiptsUseCase(repository)
     }
 }

@@ -1,5 +1,7 @@
 package com.acidtango.home_domain
 
+import dagger.Provides
+
 interface ReceiptRepository {
-    fun getAllReceipts(): Receipts
+    suspend fun getAllReceipts(offset: Int, limit: Int): Receipts
 }
