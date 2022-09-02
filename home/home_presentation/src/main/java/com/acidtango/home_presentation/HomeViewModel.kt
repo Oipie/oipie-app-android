@@ -9,8 +9,10 @@ import androidx.lifecycle.viewModelScope
 import com.acidtango.home_domain.GetReceiptsUseCase
 import com.acidtango.home_domain.Meta
 import com.acidtango.home_domain.Receipts
+import com.acidtango.home_domain.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.lang.RuntimeException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -24,7 +26,14 @@ class HomeViewModel
 
     init {
         viewModelScope.launch {
-            receipts = receiptsUseCase()
+            when (val result = receiptsUseCase()) {
+                is Resource.Error -> {
+                    throw RuntimeException("Error, something happened")
+                }
+                is Resource.Success -> {
+                    receipts = result.data!!
+                }
+            }
             Log.d("JWREGKGE", receipts.toString())
         }
 
