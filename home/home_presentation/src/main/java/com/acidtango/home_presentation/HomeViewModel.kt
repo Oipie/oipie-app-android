@@ -34,7 +34,6 @@ class HomeViewModel
                     receipts = result.data!!
                 }
             }
-            Log.d("JWREGKGE", receipts.toString())
         }
 
 
