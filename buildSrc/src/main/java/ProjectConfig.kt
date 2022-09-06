@@ -1,5 +1,5 @@
 object ProjectConfig {
-    const val appId = "com.example.boilerplatecompose"
+    const val appId = "com.acidtango.oipie"
     const val compileSdk = 33
     const val minSdk = 26
     const val targetSdk = 33
