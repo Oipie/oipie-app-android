@@ -64,7 +64,10 @@ dependencies {
     debugImplementation Compose.poolingContainer
 
     kapt DaggerHilt.hiltCompiler
+    kaptTest DaggerHilt.hiltCompiler
+    kaptAndroidTest DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
+    androidTestImplementation DaggerHilt.hiltTest
 
     testImplementation Testing.junit4
     testImplementation Testing.junitAndroidExt

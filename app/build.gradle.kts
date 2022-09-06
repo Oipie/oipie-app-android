@@ -16,7 +16,7 @@ android {
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.acidtango.oipie.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -85,11 +85,17 @@ dependencies {
     implementation(Compose.navigation)
     implementation(Compose.viewModelCompose)
     implementation(Compose.activityCompose)
+    implementation (Compose.viewModelCompose)
     androidTestImplementation(Compose.composeJUnit)
+    debugImplementation(Compose.composeManifest)
 
     // Hilt
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
+    kaptTest(DaggerHilt.hiltCompiler)
+    kaptAndroidTest(DaggerHilt.hiltCompiler)
+    androidTestImplementation(DaggerHilt.hiltTest)
+
 
     // TESTING
     testImplementation(Testing.robolectric)

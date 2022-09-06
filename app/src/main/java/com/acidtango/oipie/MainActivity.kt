@@ -31,51 +31,51 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             OipieTheme {
-                val navController = rememberNavController()
-
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    scaffoldState = rememberScaffoldState(),
-                    bottomBar = {
-                        BottomNavigationBar(navController = navController)
-                    }
-                ) { padding ->
-                    NavHost(
-                        navController = navController,
-                        startDestination = Route.LIST,
-                        modifier = Modifier.padding(padding)
-                    ) {
-                        composable(Route.LIST) {
-                            HomeScreen()
-                        }
-                        composable(Route.SEARCH) {
-                            SearchScreen()
-                        }
-                        composable(Route.FAVORITES) {
-                            FavoritesScreen()
-                        }
-                        composable(Route.MY_RECEIPTS) {
-                            ReceiptsScreen()
-                        }
-                        composable(Route.PROFILE) {
-                            ProfileScreen()
-                        }
-                    }
-                }
+                Greeting()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun Greeting() {
+    val navController = rememberNavController()
+
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        scaffoldState = rememberScaffoldState(),
+        bottomBar = {
+            BottomNavigationBar(navController = navController)
+        }
+    ) { padding ->
+        NavHost(
+            navController = navController,
+            startDestination = Route.LIST,
+            modifier = Modifier.padding(padding)
+        ) {
+            composable(Route.LIST) {
+                HomeScreen()
+            }
+            composable(Route.SEARCH) {
+                SearchScreen()
+            }
+            composable(Route.FAVORITES) {
+                FavoritesScreen()
+            }
+            composable(Route.MY_RECEIPTS) {
+                ReceiptsScreen()
+            }
+            composable(Route.PROFILE) {
+                ProfileScreen()
+            }
+        }
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     OipieTheme {
-        Greeting("Android")
+        Greeting()
     }
 }

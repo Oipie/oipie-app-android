@@ -14,6 +14,8 @@ object Compose {
     private const val hiltNavigationComposeVersion = "1.0.0"
     const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:$hiltNavigationComposeVersion"
 
+    const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+
     private const val activityComposeVersion = "1.4.0"
     const val activityCompose = "androidx.activity:activity-compose:$activityComposeVersion"
 
