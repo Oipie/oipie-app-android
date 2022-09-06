@@ -1,0 +1,5 @@
+# By default android developeres do review
+* @Oipie/android
+
+# CICD and infrastructure files
+.github @Oipie/sre
