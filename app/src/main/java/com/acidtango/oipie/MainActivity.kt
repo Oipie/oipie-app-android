@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -38,10 +39,11 @@ class MainActivity : ComponentActivity() {
                     bottomBar = {
                         BottomNavigationBar(navController = navController)
                     }
-                ) {
+                ) { padding ->
                     NavHost(
                         navController = navController,
-                        startDestination = Route.LIST
+                        startDestination = Route.LIST,
+                        modifier = Modifier.padding(padding)
                     ) {
                         composable(Route.LIST) {
                             HomeScreen()
