@@ -44,7 +44,6 @@ import org.junit.rules.RuleChain
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@UninstallModules(ReceiptsModule::class)
 @ExperimentalComposeUiApi
 @ExperimentalCoroutinesApi
 @HiltAndroidTest
@@ -62,14 +61,6 @@ class HomeTest() {
         composeTestRule.setContent {
             HomeScreen(viewModel = HomeViewModel(GetReceiptsUseCase(RecipesRepositoryFake())))
         }
-    }
-
-    @Module
-    @InstallIn(SingletonComponent::class)
-    abstract class ReceiptsTestModule {
-        @Singleton
-        @Binds
-        abstract fun provideReceiptsRepository(apiRepository: RecipesRepositoryFake): ReceiptRepository
     }
 
 

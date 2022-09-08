@@ -29,7 +29,7 @@ object ReceiptsModule {
             )
             .build()
         return Retrofit.Builder()
-            .baseUrl("https://deleteme.deno.dev/api/v1/")
+            .baseUrl("https://oipie.herokuapp.com/")
             .client(client)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()

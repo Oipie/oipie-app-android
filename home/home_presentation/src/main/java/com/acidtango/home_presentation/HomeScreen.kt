@@ -1,5 +1,6 @@
 package com.acidtango.home_presentation
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -12,6 +13,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -21,21 +23,25 @@ import com.acidtango.core_ui.theme.OipieTheme
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
-    Surface(modifier = Modifier.padding(bottom = 89.dp)) {
+    Surface() {
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.spacedBy(32.dp)
         ) {
-            Spacer(modifier = Modifier.height(24.dp))
-            viewModel.receipts.items.forEach { receipt ->
-                ReceiptCard(
-                    modifier = Modifier.padding(horizontal = 24.dp),
-                    receipt = receipt
-                )
+            Spacer(modifier = Modifier.height(32.dp))
+            Column(
+                verticalArrangement = Arrangement.spacedBy(32.dp)
+            ) {
+                viewModel.receipts.items.forEach { receipt ->
+                    ReceiptCard(
+                        modifier = Modifier.padding(horizontal = 24.dp),
+                        receipt = receipt
+                    )
+                }
             }
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(32.dp))
         }
+
     }
 
 }

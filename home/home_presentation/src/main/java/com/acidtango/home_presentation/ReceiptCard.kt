@@ -49,7 +49,7 @@ fun ReceiptCard(receipt: ReceiptDetail, modifier: Modifier = Modifier) {
 
     val painter = rememberAsyncImagePainter(
         model = ImageRequest.Builder(LocalContext.current)
-            .data(receipt.cover)
+            .data(receipt.cover ?: "https://images.unsplash.com/photo-1607013251379-e6eecfffe234?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGJ1cmdlcnxlbnwwfHwwfHw%3D&w=1000&q=80")
             .scale(Scale.FILL)
             .build()
     )

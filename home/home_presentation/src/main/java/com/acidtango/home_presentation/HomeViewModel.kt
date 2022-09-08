@@ -28,6 +28,7 @@ class HomeViewModel
         viewModelScope.launch {
             when (val result = receiptsUseCase()) {
                 is Resource.Error -> {
+                    Log.d("ERRORRRR", result.exception!!.stackTraceToString())
                     throw RuntimeException("Error, something happened")
                 }
                 is Resource.Success -> {
