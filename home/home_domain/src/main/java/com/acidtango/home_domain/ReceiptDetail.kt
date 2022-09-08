@@ -6,5 +6,5 @@ data class ReceiptDetail(
     val favouriteAmount: Int,
     val id: String,
     val name: String,
-    val preparationTime: Int
+    val preparationTime: Long
 )

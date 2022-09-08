@@ -13,7 +13,7 @@ fun ReceiptDetailNetwork.toDomain() = ReceiptDetail(
     name = this.name,
     favourite = this.favourite,
     favouriteAmount = this.favouriteAmount,
-    preparationTime = this.preparationTime
+    preparationTime = this.preparationTime.toLong()
 )
 
 fun MetaNetwork.toDomain() = Meta(totalItems = this.totalItems)

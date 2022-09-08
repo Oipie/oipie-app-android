@@ -43,6 +43,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.zIndex
 import coil.size.Scale
 import com.acidtango.home_domain.ReceiptDetail
+import java.util.concurrent.TimeUnit
 
 @Composable
 fun ReceiptCard(receipt: ReceiptDetail, modifier: Modifier = Modifier) {
@@ -121,7 +122,7 @@ fun ReceiptCard(receipt: ReceiptDetail, modifier: Modifier = Modifier) {
                     )
                     InfoReceipt(
                         icon = R.drawable.ic_timer_v2,
-                        value = "- ${receipt.preparationTime}"
+                        value = "- ${TimeUnit.MILLISECONDS.toMinutes(receipt.preparationTime)} mins"
                     )
                 }
 
