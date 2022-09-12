@@ -75,6 +75,7 @@ dependencies {
     implementation(project(Modules.favorites_presentation))
     implementation(project(Modules.receipts_presentation))
     implementation(project(Modules.profile_presentation))
+    implementation(project(Modules.auth_presentation))
 
     implementation(Compose.compiler)
     implementation(Compose.ui)

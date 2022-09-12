@@ -3,19 +3,19 @@ package com.acidtango.oipie.navigation
 import com.acidtango.core_ui.R
 
 object Route {
-    const val LIST = "receipt_list"
+    const val LOGIN = "login"
+    const val HOME = "receipt_list"
     const val SEARCH = "search"
     const val FAVORITES = "favorites"
     const val MY_RECEIPTS = "my_receipts"
     const val PROFILE = "profile"
-
 }
 
 sealed class BottomNavItem(val title: String, val icon: Int, val route: String) {
     object HOME : BottomNavItem(
         title = "Home",
         icon = R.drawable.ic_home,
-        route = Route.LIST
+        route = Route.HOME
     )
 
     object SEARCH : BottomNavItem(
