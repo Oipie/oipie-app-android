@@ -57,6 +57,7 @@ dependencies {
     implementation Compose.navigation
     implementation Compose.activityCompose
     implementation Compose.hiltViewModel
+    implementation DataStore.dataStorePreferences
 
     kapt DaggerHilt.hiltCompiler
     kaptTest DaggerHilt.hiltCompiler

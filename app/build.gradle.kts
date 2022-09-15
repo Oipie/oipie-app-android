@@ -68,6 +68,7 @@ android {
 
 dependencies {
     implementation(project(Modules.coreUi))
+    implementation(project(Modules.core))
     implementation(project(Modules.home_presentation))
     implementation(project(Modules.home_domain))
     implementation(project(Modules.home_data))
@@ -76,6 +77,7 @@ dependencies {
     implementation(project(Modules.receipts_presentation))
     implementation(project(Modules.profile_presentation))
     implementation(project(Modules.auth_presentation))
+    implementation (DataStore.dataStorePreferences)
 
     implementation(Compose.compiler)
     implementation(Compose.ui)
