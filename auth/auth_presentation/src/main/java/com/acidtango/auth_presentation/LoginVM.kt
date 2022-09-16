@@ -17,7 +17,6 @@ class LoginVM
     val dataStore: DataStoreDefaults
 ) : ViewModel() {
 
-
     var email by mutableStateOf("")
         private set
 
@@ -40,7 +39,6 @@ class LoginVM
         viewModelScope.launch {
             dataStore.writeToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c")
         }
-
     }
 
     fun readToken() {
@@ -48,5 +46,4 @@ class LoginVM
             Log.d("WEFHKE", dataStore.readToken())
         }
     }
-
 }

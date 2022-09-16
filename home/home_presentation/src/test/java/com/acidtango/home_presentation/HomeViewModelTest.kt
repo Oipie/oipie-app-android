@@ -30,7 +30,8 @@ class HomeViewModelTest {
         runBlocking {
             assertThat(homeViewModel.receipts).isEqualTo(
                 Receipts(
-                    meta = Meta(totalItems = 343), items = listOf(
+                    meta = Meta(totalItems = 343),
+                    items = listOf(
                         ReceiptDetail(
                             id = "b16d63bf-39eb-45bd-bfbd-7631220ae3f2",
                             name = "Pumpkin soup",

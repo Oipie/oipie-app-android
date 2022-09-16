@@ -3,7 +3,6 @@ package com.acidtango.home_data.di
 import com.acidtango.home_data.network.ReceiptsApi
 import com.acidtango.home_data.repositories.ReceiptRepositoryApi
 import com.acidtango.home_domain.ReceiptRepository
-import com.acidtango.home_domain.Receipts
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -45,5 +44,4 @@ object ReceiptsModule {
             api = network
         )
     }
-
 }

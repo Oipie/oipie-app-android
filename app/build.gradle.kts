@@ -77,7 +77,7 @@ dependencies {
     implementation(project(Modules.receipts_presentation))
     implementation(project(Modules.profile_presentation))
     implementation(project(Modules.auth_presentation))
-    implementation (DataStore.dataStorePreferences)
+    implementation(DataStore.dataStorePreferences)
 
     implementation(Compose.compiler)
     implementation(Compose.ui)
@@ -88,7 +88,7 @@ dependencies {
     implementation(Compose.navigation)
     implementation(Compose.viewModelCompose)
     implementation(Compose.activityCompose)
-    implementation (Compose.viewModelCompose)
+    implementation(Compose.viewModelCompose)
     androidTestImplementation(Compose.composeJUnit)
     debugImplementation(Compose.composeManifest)
 
@@ -98,7 +98,6 @@ dependencies {
     kaptTest(DaggerHilt.hiltCompiler)
     kaptAndroidTest(DaggerHilt.hiltCompiler)
     androidTestImplementation(DaggerHilt.hiltTest)
-
 
     // TESTING
     testImplementation(Testing.robolectric)

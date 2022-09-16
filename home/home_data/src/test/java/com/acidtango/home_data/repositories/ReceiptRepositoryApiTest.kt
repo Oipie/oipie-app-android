@@ -1,8 +1,8 @@
 package com.acidtango.home_data.repositories
 
-import com.acidtango.home_data.R
 import android.content.Context
 import androidx.test.platform.app.InstrumentationRegistry
+import com.acidtango.home_data.R
 import com.acidtango.home_data.network.ReceiptsApi
 import com.acidtango.home_domain.ErrorEntity
 import com.acidtango.home_domain.Meta
@@ -27,7 +27,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
-
 @RunWith(RobolectricTestRunner::class)
 @Config(instrumentedPackages = ["androidx.loader.content"], sdk = [32], manifest = Config.NONE)
 class ReceiptRepositoryApiTest {
@@ -38,7 +37,6 @@ class ReceiptRepositoryApiTest {
     private lateinit var api: ReceiptsApi
 
     lateinit var instrumentationContext: Context
-
 
     @Before
     fun setUp() {
@@ -85,7 +83,8 @@ class ReceiptRepositoryApiTest {
                 if (it is Resource.Success) {
                     assertThat(it.data!!).isEqualTo(
                         Receipts(
-                            meta = Meta(totalItems = 343), items = listOf(
+                            meta = Meta(totalItems = 343),
+                            items = listOf(
                                 ReceiptDetail(
                                     id = "b16d63bf-39eb-45bd-bfbd-7631220ae3f2",
                                     name = "Pumpkin soup",
@@ -107,7 +106,6 @@ class ReceiptRepositoryApiTest {
                     )
                 } else throw Exception("Something went wrong")
             }
-
         }
     }
 
@@ -133,10 +131,8 @@ class ReceiptRepositoryApiTest {
                     null -> throw Exception("Something went wrong")
                 }
             }
-
         }
     }
-
 
     @Test
     fun `Error Unknown`() {
@@ -154,8 +150,6 @@ class ReceiptRepositoryApiTest {
                     null -> throw Exception("Something went wrong")
                 }
             }
-
         }
     }
-
 }

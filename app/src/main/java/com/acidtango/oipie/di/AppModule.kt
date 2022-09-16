@@ -14,7 +14,6 @@ import javax.inject.Singleton
 
 private val Context.dataStore by preferencesDataStore("settings")
 
-
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {

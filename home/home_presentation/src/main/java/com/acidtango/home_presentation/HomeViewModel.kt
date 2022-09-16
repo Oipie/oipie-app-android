@@ -1,12 +1,10 @@
 package com.acidtango.home_presentation
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import coil.network.HttpException
 import com.acidtango.home_domain.ErrorEntity
 import com.acidtango.home_domain.GetReceiptsUseCase
 import com.acidtango.home_domain.Meta
@@ -16,7 +14,6 @@ import com.acidtango.home_domain.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import java.lang.RuntimeException
 import javax.inject.Inject
 
 @HiltViewModel

@@ -15,7 +15,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.acidtango.core_ui.R
 import com.acidtango.core_ui.theme.OipieTheme
-import com.acidtango.home_presentation.ReceiptCard
 
 @Composable
 fun InfoReceipt(icon: Int, value: String) {

@@ -23,7 +23,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -36,14 +35,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.acidtango.core_ui.R
 import com.acidtango.core_ui.theme.Purple
 
-
 @Composable
 fun LoginScreen(
     viewModel: LoginVM = hiltViewModel(),
     onLogin: () -> Unit
 ) {
     var passwordVisible by rememberSaveable { mutableStateOf(false) }
-    val context = LocalContext.current
 
     Surface() {
         Column(
@@ -125,8 +122,10 @@ fun LoginScreen(
             Spacer(modifier = Modifier.height(24.dp))
             Button(
                 onClick = {
-                          viewModel.readToken()
-                }, modifier = Modifier
+                    viewModel.readToken()
+                    onLogin()
+                },
+                modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 24.dp),
                 colors = ButtonDefaults.buttonColors(
@@ -139,6 +138,5 @@ fun LoginScreen(
             }
             Spacer(modifier = Modifier.weight(1f))
         }
-
     }
 }
