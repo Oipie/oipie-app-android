@@ -1,4 +1,4 @@
-package com.acidtango.auth_presentation
+package com.acidtango.auth_presentation.viewModels
 
 import android.util.Log
 import androidx.compose.runtime.getValue

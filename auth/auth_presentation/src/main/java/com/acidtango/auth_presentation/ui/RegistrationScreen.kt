@@ -1,4 +1,4 @@
-package com.acidtango.auth_presentation
+package com.acidtango.auth_presentation.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -32,13 +32,13 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.acidtango.auth_presentation.viewModels.LoginVM
 import com.acidtango.core_ui.R
 import com.acidtango.core_ui.theme.Purple
 
 @Composable
-fun LoginScreen(
+fun RegistrationScreen(
     viewModel: LoginVM = hiltViewModel(),
-    onLogin: () -> Unit
 ) {
     var passwordVisible by rememberSaveable { mutableStateOf(false) }
 
@@ -53,6 +53,32 @@ fun LoginScreen(
                 style = TextStyle(fontSize = 48.sp, fontWeight = FontWeight.Bold, color = Purple)
             )
             Spacer(modifier = Modifier.height(72.dp))
+            OutlinedTextField(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp),
+                value = viewModel.email,
+                onValueChange = viewModel::onEmailChange,
+                label = {
+                    Text(
+                        text = "Nickname"
+                    )
+                },
+                placeholder = {
+                    Text(
+                        text = "Nickname"
+                    )
+                },
+                textStyle = TextStyle(),
+                singleLine = true,
+                maxLines = 1,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    focusedBorderColor = Purple,
+                    unfocusedBorderColor = Color.Gray
+                )
+            )
+            Spacer(modifier = Modifier.height(16.dp))
             OutlinedTextField(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -123,7 +149,6 @@ fun LoginScreen(
             Button(
                 onClick = {
                     viewModel.readToken()
-                    onLogin()
                 },
                 modifier = Modifier
                     .fillMaxWidth()
@@ -134,7 +159,7 @@ fun LoginScreen(
                 ),
                 elevation = null
             ) {
-                Text(text = "Login")
+                Text(text = "Signup")
             }
             Spacer(modifier = Modifier.weight(1f))
         }

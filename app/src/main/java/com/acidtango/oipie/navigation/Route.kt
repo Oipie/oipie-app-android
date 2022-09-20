@@ -4,6 +4,7 @@ import com.acidtango.core_ui.R
 
 object Route {
     const val LOGIN = "login"
+    const val REGISTRATION = "registration"
     const val HOME = "receipt_list"
     const val SEARCH = "search"
     const val FAVORITES = "favorites"

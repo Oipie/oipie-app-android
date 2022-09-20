@@ -18,7 +18,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.acidtango.auth_presentation.LoginScreen
+import com.acidtango.auth_presentation.ui.LoginScreen
+import com.acidtango.auth_presentation.ui.RegistrationScreen
 import com.acidtango.core_ui.theme.OipieTheme
 import com.acidtango.favorites_presentation.FavoritesScreen
 import com.acidtango.home_presentation.HomeScreen
@@ -71,13 +72,20 @@ fun Greeting() {
         ) {
             composable(Route.LOGIN) {
                 LoginScreen(
+                    onRegistration = {
+                        navController.navigate(Route.REGISTRATION)
+                    },
                     onLogin = {
                         navController.navigate(Route.HOME)
                     }
+
                 )
             }
             composable(Route.HOME) {
                 HomeScreen()
+            }
+            composable(Route.REGISTRATION) {
+                RegistrationScreen()
             }
             composable(Route.SEARCH) {
                 SearchScreen()
