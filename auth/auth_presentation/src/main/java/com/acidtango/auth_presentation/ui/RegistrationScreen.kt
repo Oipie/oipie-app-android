@@ -32,12 +32,13 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.acidtango.auth_presentation.ui.components.TextFieldPurple
 import com.acidtango.auth_presentation.viewModels.LoginVM
+import com.acidtango.auth_presentation.viewModels.RegistrationVM
 import com.acidtango.core_ui.R
 import com.acidtango.core_ui.theme.Purple
 
 @Composable
 fun RegistrationScreen(
-    viewModel: LoginVM = hiltViewModel(),
+    viewModel: RegistrationVM = hiltViewModel(),
 ) {
     var passwordVisible by rememberSaveable { mutableStateOf(false) }
 
@@ -53,8 +54,8 @@ fun RegistrationScreen(
             )
             Spacer(modifier = Modifier.height(72.dp))
             TextFieldPurple(
-                value = viewModel.email,
-                onValueChange = viewModel::onEmailChange,
+                value = viewModel.nickName,
+                onValueChange = viewModel::onNickNameChange,
                 label = "Nickname",
                 placeHolder = "Nickname"
             )
@@ -90,9 +91,7 @@ fun RegistrationScreen(
             )
             Spacer(modifier = Modifier.height(24.dp))
             Button(
-                onClick = {
-                    viewModel.readToken()
-                },
+                onClick = {},
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 24.dp),
