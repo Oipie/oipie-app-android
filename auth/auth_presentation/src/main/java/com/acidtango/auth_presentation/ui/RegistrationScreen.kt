@@ -32,6 +32,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.acidtango.auth_presentation.ui.components.TextFieldPurple
 import com.acidtango.auth_presentation.viewModels.LoginVM
 import com.acidtango.core_ui.R
 import com.acidtango.core_ui.theme.Purple
@@ -53,56 +54,18 @@ fun RegistrationScreen(
                 style = TextStyle(fontSize = 48.sp, fontWeight = FontWeight.Bold, color = Purple)
             )
             Spacer(modifier = Modifier.height(72.dp))
-            OutlinedTextField(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 24.dp),
+            TextFieldPurple(
                 value = viewModel.email,
                 onValueChange = viewModel::onEmailChange,
-                label = {
-                    Text(
-                        text = "Nickname"
-                    )
-                },
-                placeholder = {
-                    Text(
-                        text = "Nickname"
-                    )
-                },
-                textStyle = TextStyle(),
-                singleLine = true,
-                maxLines = 1,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    focusedBorderColor = Purple,
-                    unfocusedBorderColor = Color.Gray
-                )
+                label = "Nickname",
+                placeHolder = "Nickname"
             )
             Spacer(modifier = Modifier.height(16.dp))
-            OutlinedTextField(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 24.dp),
+            TextFieldPurple(
                 value = viewModel.email,
                 onValueChange = viewModel::onEmailChange,
-                label = {
-                    Text(
-                        text = "Email"
-                    )
-                },
-                placeholder = {
-                    Text(
-                        text = "Email"
-                    )
-                },
-                textStyle = TextStyle(),
-                singleLine = true,
-                maxLines = 1,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    focusedBorderColor = Purple,
-                    unfocusedBorderColor = Color.Gray
-                )
+                label = "Email",
+                placeHolder = "Email"
             )
             Spacer(modifier = Modifier.height(16.dp))
             OutlinedTextField(

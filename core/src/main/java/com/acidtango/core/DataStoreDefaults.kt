@@ -8,17 +8,17 @@ import kotlinx.coroutines.flow.first
 
 class DataStoreDefaults(
     private val dataStore: DataStore<Preferences>
-) {
+): DataStoreInterface {
 
     private val accessToken = stringPreferencesKey("jwt")
 
-    suspend fun writeToken(token: String) {
+    override suspend fun writeToken(token: String) {
         dataStore.edit { jwt ->
             jwt[accessToken] = token
         }
     }
 
-    suspend fun readToken(): String {
+    override suspend fun readToken(): String {
         return dataStore.data.first()[accessToken] ?: ""
     }
 }

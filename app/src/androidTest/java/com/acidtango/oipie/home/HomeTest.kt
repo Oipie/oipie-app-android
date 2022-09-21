@@ -1,4 +1,4 @@
-package com.acidtango.oipie
+package com.acidtango.oipie.home
 
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.test.assertIsDisplayed

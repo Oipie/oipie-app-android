@@ -6,6 +6,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.acidtango.core.DataStoreDefaults
+import com.acidtango.core.DataStoreInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,7 +27,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideDefaultDataStore(dataStore: DataStore<Preferences>): DataStoreDefaults {
+    fun provideDefaultDataStore(dataStore: DataStore<Preferences>): DataStoreInterface {
         return DataStoreDefaults(dataStore)
     }
 }
