@@ -11,10 +11,8 @@ import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
-import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -60,28 +58,15 @@ fun LoginScreen(
                 value = viewModel.email,
                 onValueChange = viewModel::onEmailChange,
                 label = "Email",
-                placeHolder = "Email"
+                placeHolder = "Email",
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
             )
             Spacer(modifier = Modifier.height(16.dp))
-            OutlinedTextField(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 24.dp),
+            TextFieldPurple(
                 value = viewModel.password,
                 onValueChange = viewModel::onPasswordChange,
-                label = {
-                    Text(
-                        text = "Password"
-                    )
-                },
-                placeholder = {
-                    Text(
-                        text = "Password"
-                    )
-                },
-                textStyle = TextStyle(),
-                singleLine = true,
-                maxLines = 1,
+                label = "Password",
+                placeHolder = "Password",
                 visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 trailingIcon = {
@@ -96,13 +81,8 @@ fun LoginScreen(
                             tint = Color.Unspecified
                         )
                     }
-                },
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    focusedBorderColor = Purple,
-                    unfocusedBorderColor = Color.Gray
-                )
+                }
             )
-
             Spacer(modifier = Modifier.height(24.dp))
             Button(
                 onClick = {

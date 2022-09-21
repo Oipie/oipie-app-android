@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.acidtango.core_ui.theme.Purple
 
@@ -19,7 +19,10 @@ fun TextFieldPurple(
     value: String,
     onValueChange: (String) -> Unit,
     label: String,
-    placeHolder: String
+    placeHolder: String,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    trailingIcon: @Composable (() -> Unit)? = null,
 ) {
     OutlinedTextField(
         modifier = Modifier
@@ -40,10 +43,12 @@ fun TextFieldPurple(
         textStyle = TextStyle(),
         singleLine = true,
         maxLines = 1,
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+        visualTransformation = visualTransformation,
+        keyboardOptions = keyboardOptions,
         colors = TextFieldDefaults.outlinedTextFieldColors(
             focusedBorderColor = Purple,
             unfocusedBorderColor = Color.Gray
-        )
+        ),
+        trailingIcon = trailingIcon
     )
 }

@@ -1,6 +1,5 @@
 package com.acidtango.oipie.auth
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
@@ -17,7 +16,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.acidtango.auth_presentation.ui.LoginScreen
 import com.acidtango.auth_presentation.viewModels.LoginVM
-import com.acidtango.core.DataStoreDefaults
 import com.acidtango.core.DataStoreInterface
 import com.acidtango.home_domain.GetReceiptsUseCase
 import com.acidtango.home_presentation.HomeScreen
@@ -100,5 +98,4 @@ class FakeDataStore() : DataStoreInterface {
     override suspend fun readToken(): String {
         return ""
     }
-
 }

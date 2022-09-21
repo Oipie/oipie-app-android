@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.first
 
 class DataStoreDefaults(
     private val dataStore: DataStore<Preferences>
-): DataStoreInterface {
+) : DataStoreInterface {
 
     private val accessToken = stringPreferencesKey("jwt")
 
