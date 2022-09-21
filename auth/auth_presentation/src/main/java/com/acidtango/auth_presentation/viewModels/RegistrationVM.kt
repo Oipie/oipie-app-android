@@ -1,14 +1,10 @@
 package com.acidtango.auth_presentation.viewModels
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.acidtango.core.DataStoreInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -35,5 +31,4 @@ class RegistrationVM
     fun onPasswordChange(password: String) {
         this.password = password
     }
-
 }
