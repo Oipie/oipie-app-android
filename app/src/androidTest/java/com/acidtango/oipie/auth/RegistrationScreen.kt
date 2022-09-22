@@ -43,7 +43,6 @@ class RegistrationScreen() {
         composeTestRule.onNodeWithText(nickName).assertIsDisplayed()
     }
 
-
     @Test
     fun test_writeEmail() {
         val email = "maxverst@rb.com"

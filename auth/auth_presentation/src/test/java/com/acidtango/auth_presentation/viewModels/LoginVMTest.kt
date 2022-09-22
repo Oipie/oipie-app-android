@@ -21,7 +21,6 @@ class LoginVMTest {
             LoginVM(FakeDataStore())
     }
 
-
     @Test
     fun `Token is empty at the beginning`() {
         runBlocking {

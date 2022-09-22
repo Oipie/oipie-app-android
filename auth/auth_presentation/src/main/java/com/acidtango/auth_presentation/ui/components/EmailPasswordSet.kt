@@ -54,7 +54,8 @@ fun EmailPasswordSet(
 
                 IconButton(
                     modifier = Modifier.testTag("show_password_btn"),
-                    onClick = { passwordVisible = !passwordVisible }) {
+                    onClick = { passwordVisible = !passwordVisible }
+                ) {
                     Icon(
                         painter = painterResource(id = image),
                         contentDescription = null,
