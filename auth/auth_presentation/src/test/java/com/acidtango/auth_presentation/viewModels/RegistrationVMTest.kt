@@ -1,9 +1,12 @@
 package com.acidtango.auth_presentation.viewModels
 
 import com.acidtango.core_testing.MainCoroutineRule
+import com.google.common.truth.Truth
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
+import org.junit.Test
 
 class RegistrationVMTest {
     private lateinit var registrationVW: RegistrationVM
@@ -18,32 +21,51 @@ class RegistrationVMTest {
             RegistrationVM()
     }
 
-    /*@Test
-    fun `First Recipes call not empty`() {
+    @Test
+    fun `Nickname is empty at the beginning`() {
         runBlocking {
-            Truth.assertThat(homeViewModel.receipts).isEqualTo(
-                Receipts(
-                    meta = Meta(totalItems = 343),
-                    items = listOf(
-                        ReceiptDetail(
-                            id = "b16d63bf-39eb-45bd-bfbd-7631220ae3f2",
-                            name = "Pumpkin soup",
-                            cover = "https://i.imgur.com/ISxVZHA.png",
-                            favourite = true,
-                            favouriteAmount = 245,
-                            preparationTime = 900000,
-                        ),
-                        ReceiptDetail(
-                            id = "b16d63bf-39eb-45bd-bfbd-7631220ae3f2",
-                            name = "French toast",
-                            cover = "https://i.imgur.com/GNw5TTl.png",
-                            favourite = false,
-                            favouriteAmount = 124,
-                            preparationTime = 600000,
-                        )
-                    )
-                )
-            )
+            Truth.assertThat(registrationVW.nickName).isEmpty()
         }
-    }*/
+    }
+
+    @Test
+    fun `Email is empty at the beginning`() {
+        runBlocking {
+            Truth.assertThat(registrationVW.email).isEmpty()
+        }
+    }
+
+    @Test
+    fun `Password is empty at the beginning`() {
+        runBlocking {
+            Truth.assertThat(registrationVW.password).isEmpty()
+        }
+    }
+
+    @Test
+    fun `Write nickname`() {
+        runBlocking {
+            val nickName = "XxLocoxX"
+            registrationVW.onNickNameChange(nickName)
+            Truth.assertThat(registrationVW.nickName).isEqualTo(nickName)
+        }
+    }
+
+    @Test
+    fun `Write email`() {
+        runBlocking {
+            val email = "maxverst@rb.com"
+            registrationVW.onEmailChange(email)
+            Truth.assertThat(registrationVW.email).isEqualTo(email)
+        }
+    }
+
+    @Test
+    fun `Write password`() {
+        runBlocking {
+            val password = "password"
+            registrationVW.onPasswordChange(password)
+            Truth.assertThat(registrationVW.password).isEqualTo(password)
+        }
+    }
 }

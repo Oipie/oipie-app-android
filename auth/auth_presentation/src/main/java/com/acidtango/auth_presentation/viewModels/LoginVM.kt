@@ -23,6 +23,9 @@ class LoginVM
     var password by mutableStateOf("")
         private set
 
+    var token by mutableStateOf("")
+        private set
+
     fun onEmailChange(email: String) {
         this.email = email
     }
@@ -43,7 +46,7 @@ class LoginVM
 
     fun readToken() {
         viewModelScope.launch {
-            Log.d("WEFHKE", dataStore.readToken())
+            token = dataStore.readToken()
         }
     }
 }
