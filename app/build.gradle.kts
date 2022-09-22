@@ -16,7 +16,7 @@ android {
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
-        testInstrumentationRunner = "com.acidtango.oipie.HiltTestRunner"
+        testInstrumentationRunner = "com.acidtango.core_testing.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -69,6 +69,8 @@ android {
 dependencies {
     implementation(project(Modules.coreUi))
     implementation(project(Modules.core))
+    testImplementation(project(Modules.coreTesting))
+    androidTestImplementation(project(Modules.coreTesting))
     implementation(project(Modules.home_presentation))
     implementation(project(Modules.home_domain))
     implementation(project(Modules.home_data))

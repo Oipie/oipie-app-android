@@ -1,20 +1,12 @@
-package com.acidtango.home_presentation
+package com.acidtango.auth_presentation.viewModels
 
 import com.acidtango.core_testing.MainCoroutineRule
-import com.acidtango.home_domain.GetReceiptsUseCase
-import com.acidtango.home_domain.Meta
-import com.acidtango.home_domain.ReceiptDetail
-import com.acidtango.home_domain.Receipts
-import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
-import org.junit.Test
 
-class HomeViewModelTest {
-
-    private lateinit var homeViewModel: HomeViewModel
+class RegistrationVMTest {
+    private lateinit var registrationVW: RegistrationVM
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @get:Rule
@@ -22,14 +14,14 @@ class HomeViewModelTest {
 
     @Before
     fun setUp() {
-        homeViewModel =
-            HomeViewModel(receiptsUseCase = GetReceiptsUseCase(RecipesRepositoryFake()))
+        registrationVW =
+            RegistrationVM()
     }
 
-    @Test
+    /*@Test
     fun `First Recipes call not empty`() {
         runBlocking {
-            assertThat(homeViewModel.receipts).isEqualTo(
+            Truth.assertThat(homeViewModel.receipts).isEqualTo(
                 Receipts(
                     meta = Meta(totalItems = 343),
                     items = listOf(
@@ -53,5 +45,5 @@ class HomeViewModelTest {
                 )
             )
         }
-    }
+    }*/
 }

@@ -1,4 +1,4 @@
-package com.acidtango.oipie
+package com.acidtango.core_testing
 
 import android.app.Application
 import android.content.Context
