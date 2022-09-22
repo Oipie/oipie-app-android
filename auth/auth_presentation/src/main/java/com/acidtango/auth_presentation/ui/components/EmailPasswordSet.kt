@@ -14,6 +14,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -51,7 +52,9 @@ fun EmailPasswordSet(
                     R.drawable.ic_visibility_24
                 else R.drawable.ic_visibility_off_24
 
-                IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                IconButton(
+                    modifier = Modifier.testTag("show_password_btn"),
+                    onClick = { passwordVisible = !passwordVisible }) {
                     Icon(
                         painter = painterResource(id = image),
                         contentDescription = null,

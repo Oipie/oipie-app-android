@@ -8,8 +8,10 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTextInput
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -88,7 +90,23 @@ class LoginTest() {
                 ?.route
                 ?.startsWith(Route.HOME)
         ).isTrue()
-        Thread.sleep(5000)
+    }
+
+    @Test
+    fun test_writeEmail() {
+        val email = "maxverst@rb.com"
+        composeTestRule.onNodeWithText("Email").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Email").performTextInput(email)
+        composeTestRule.onNodeWithText(email).assertIsDisplayed()
+    }
+
+    @Test
+    fun test_writePassword() {
+        val password = "password"
+        composeTestRule.onNodeWithText("Password").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Password").performTextInput(password)
+        composeTestRule.onNodeWithTag("show_password_btn").performClick()
+        composeTestRule.onNodeWithText(password).assertIsDisplayed()
     }
 }
 
