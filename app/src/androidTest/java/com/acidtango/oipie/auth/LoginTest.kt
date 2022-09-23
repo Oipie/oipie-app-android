@@ -1,11 +1,6 @@
 package com.acidtango.oipie.auth
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Scaffold
-import androidx.compose.material.rememberScaffoldState
 import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
@@ -13,16 +8,11 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.acidtango.auth_presentation.ui.LoginScreen
 import com.acidtango.auth_presentation.viewModels.LoginVM
 import com.acidtango.core.DataStoreInterface
-import com.acidtango.home_domain.GetReceiptsUseCase
-import com.acidtango.home_presentation.HomeScreen
-import com.acidtango.home_presentation.HomeViewModel
-import com.acidtango.oipie.fakes.RecipesRepositoryFake
+import com.acidtango.oipie.Base
 import com.acidtango.oipie.navigation.Route
 import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -49,34 +39,18 @@ class LoginTest() {
     fun setup() {
         hiltTestRule.inject()
         composeTestRule.setContent {
-            val scaffoldState = rememberScaffoldState()
             navController = rememberNavController()
-            Scaffold(
-                modifier = Modifier.fillMaxSize(),
-                scaffoldState = scaffoldState
-            ) { it ->
-                NavHost(
-                    navController = navController,
-                    startDestination = Route.LOGIN,
-                    modifier = Modifier.padding(it)
-                ) {
-                    composable(Route.LOGIN) {
-                        LoginVM(FakeDataStore())
-                    }
-                    composable(Route.HOME) {
-                        HomeScreen(viewModel = HomeViewModel(GetReceiptsUseCase(RecipesRepositoryFake())))
-                    }
-                }
+            Base(navController) {
+                LoginScreen(
+                    onRegistration = {
+                        navController.navigate(Route.REGISTRATION)
+                    },
+                    onLogin = {
+                        navController.navigate(Route.HOME)
+                    },
+                    viewModel = LoginVM(FakeDataStore())
+                )
             }
-            LoginScreen(
-                onRegistration = {
-                    navController.navigate(Route.REGISTRATION)
-                },
-                onLogin = {
-                    navController.navigate(Route.HOME)
-                },
-                viewModel = LoginVM(FakeDataStore())
-            )
         }
     }
 
