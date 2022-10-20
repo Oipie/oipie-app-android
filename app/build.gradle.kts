@@ -121,4 +121,6 @@ dependencies {
     androidTestImplementation(Testing.mockWebServer)
     androidTestImplementation(Testing.testRunner)
     androidTestImplementation(Testing.espressoCore)
+    debugImplementation(LeakCanary.leakCanary)
+
 }
