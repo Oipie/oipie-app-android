@@ -16,7 +16,7 @@ android {
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.acidtango.core_testing.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -68,6 +68,9 @@ android {
 
 dependencies {
     implementation(project(Modules.coreUi))
+    implementation(project(Modules.core))
+    testImplementation(project(Modules.coreTesting))
+    androidTestImplementation(project(Modules.coreTesting))
     implementation(project(Modules.home_presentation))
     implementation(project(Modules.home_domain))
     implementation(project(Modules.home_data))
@@ -75,6 +78,8 @@ dependencies {
     implementation(project(Modules.favorites_presentation))
     implementation(project(Modules.receipts_presentation))
     implementation(project(Modules.profile_presentation))
+    implementation(project(Modules.auth_presentation))
+    implementation(DataStore.dataStorePreferences)
 
     implementation(Compose.compiler)
     implementation(Compose.ui)
@@ -85,11 +90,16 @@ dependencies {
     implementation(Compose.navigation)
     implementation(Compose.viewModelCompose)
     implementation(Compose.activityCompose)
+    implementation(Compose.viewModelCompose)
     androidTestImplementation(Compose.composeJUnit)
+    debugImplementation(Compose.composeManifest)
 
     // Hilt
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
+    kaptTest(DaggerHilt.hiltCompiler)
+    kaptAndroidTest(DaggerHilt.hiltCompiler)
+    androidTestImplementation(DaggerHilt.hiltTest)
 
     // TESTING
     testImplementation(Testing.robolectric)

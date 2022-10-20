@@ -4,15 +4,15 @@ import com.squareup.moshi.Json
 
 data class ReceiptDetailNetwork(
     @field:Json(name = "cover")
-    val cover: String,
+    val cover: String?,
     @field:Json(name = "favourite")
     val favourite: Boolean,
-    @field:Json(name = "favouriteAmount")
+    @field:Json(name = "favourite_amount")
     val favouriteAmount: Int,
-    @field:Json(name = "id")
+    @field:Json(name = "id_")
     val id: String,
     @field:Json(name = "name")
     val name: String,
-    @field:Json(name = "preparationTime")
+    @field:Json(name = "preparation_time")
     val preparationTime: Int
 )

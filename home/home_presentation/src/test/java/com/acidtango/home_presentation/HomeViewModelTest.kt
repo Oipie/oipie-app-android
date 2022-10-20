@@ -1,5 +1,6 @@
 package com.acidtango.home_presentation
 
+import com.acidtango.core_testing.MainCoroutineRule
 import com.acidtango.home_domain.GetReceiptsUseCase
 import com.acidtango.home_domain.Meta
 import com.acidtango.home_domain.ReceiptDetail
@@ -30,7 +31,8 @@ class HomeViewModelTest {
         runBlocking {
             assertThat(homeViewModel.receipts).isEqualTo(
                 Receipts(
-                    meta = Meta(totalItems = 343), items = listOf(
+                    meta = Meta(totalItems = 343),
+                    items = listOf(
                         ReceiptDetail(
                             id = "b16d63bf-39eb-45bd-bfbd-7631220ae3f2",
                             name = "Pumpkin soup",

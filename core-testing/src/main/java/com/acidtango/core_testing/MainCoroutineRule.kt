@@ -1,4 +1,4 @@
-package com.acidtango.home_presentation
+package com.acidtango.core_testing
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
