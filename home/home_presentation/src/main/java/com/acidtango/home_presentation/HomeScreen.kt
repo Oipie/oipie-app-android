@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.acidtango.core_ui.theme.OipieTheme
+import com.acidtango.core_ui.theme.Purple200
 
 @Composable
 fun HomeScreen(
@@ -25,7 +26,7 @@ fun HomeScreen(
 ) {
 
     val context = LocalContext.current
-    Surface(color = Color.Red) {
+    Surface(color = Color(0xFFFFD452)) {
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState()),
