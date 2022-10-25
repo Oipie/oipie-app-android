@@ -75,6 +75,7 @@ dependencies {
     implementation(project(Modules.home_domain))
     implementation(project(Modules.home_data))
     implementation(project(Modules.search_presentation))
+    implementation(project(Modules.search_domain))
     implementation(project(Modules.favorites_presentation))
     implementation(project(Modules.receipts_presentation))
     implementation(project(Modules.profile_presentation))

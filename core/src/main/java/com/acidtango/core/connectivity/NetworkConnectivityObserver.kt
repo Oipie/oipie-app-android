@@ -1,4 +1,4 @@
-package com.acidtango.search_presentation
+package com.acidtango.core.connectivity
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 
 class NetworkConnectivityObserver(
-    private val context: Context
+    context: Context
 ) : ConnectivityObserver {
     private val connectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -54,5 +54,4 @@ class NetworkConnectivityObserver(
             }
         }.distinctUntilChanged()
     }
-
 }

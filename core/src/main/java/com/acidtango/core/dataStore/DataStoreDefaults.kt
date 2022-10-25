@@ -1,4 +1,4 @@
-package com.acidtango.core
+package com.acidtango.core.dataStore
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
