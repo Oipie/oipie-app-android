@@ -26,7 +26,7 @@ fun HomeScreen(
 ) {
 
     val context = LocalContext.current
-    Surface(color = Color(0xFFFFD452)) {
+    Surface() {
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState()),
