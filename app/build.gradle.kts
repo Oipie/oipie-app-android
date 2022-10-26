@@ -82,6 +82,8 @@ dependencies {
     implementation(project(Modules.auth_presentation))
     implementation(DataStore.dataStorePreferences)
 
+    implementation(SplashScreen.splashScreen)
+
     implementation(Compose.compiler)
     implementation(Compose.ui)
     implementation(Compose.uiToolingPreview)
@@ -122,4 +124,6 @@ dependencies {
     androidTestImplementation(Testing.mockWebServer)
     androidTestImplementation(Testing.testRunner)
     androidTestImplementation(Testing.espressoCore)
+    debugImplementation(LeakCanary.leakCanary)
+
 }
