@@ -1,6 +1,7 @@
 package com.acidtango.oipie
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -49,6 +50,7 @@ fun Greeting() {
     val navController = rememberNavController()
     var showBottomBar by rememberSaveable { mutableStateOf(false) }
     val navBackStackEntry by navController.currentBackStackEntryAsState()
+    var isLogged by rememberSaveable { mutableStateOf(false)}
 
     showBottomBar = listOf(
         Route.HOME,
@@ -69,19 +71,19 @@ fun Greeting() {
     ) { padding ->
         NavHost(
             navController = navController,
-            startDestination = Route.LOGIN,
+            startDestination = if (isLogged) Route.HOME else Route.LOGIN,
             modifier = Modifier.padding(padding)
         ) {
             composable(Route.LOGIN) {
-                LoginScreen(
-                    onRegistration = {
-                        navController.navigate(Route.REGISTRATION)
-                    },
-                    onLogin = {
-                        navController.navigate(Route.HOME)
-                    }
-
-                )
+                    LoginScreen(
+                        onRegistration = {
+                            navController.navigate(Route.REGISTRATION)
+                        },
+                        onLogin = {
+                            isLogged = true
+                            navController.navigate(Route.HOME)
+                        }
+                    )
             }
             composable(Route.HOME) {
                 HomeScreen()
