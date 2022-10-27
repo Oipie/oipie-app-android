@@ -80,6 +80,7 @@ dependencies {
     implementation(project(Modules.profile_presentation))
     implementation(project(Modules.auth_presentation))
     implementation(DataStore.dataStorePreferences)
+    implementation(Biometric.biometric)
 
     implementation(SplashScreen.splashScreen)
 
@@ -124,5 +125,4 @@ dependencies {
     androidTestImplementation(Testing.testRunner)
     androidTestImplementation(Testing.espressoCore)
     debugImplementation(LeakCanary.leakCanary)
-
 }

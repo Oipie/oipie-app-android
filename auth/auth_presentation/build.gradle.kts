@@ -8,4 +8,5 @@ dependencies {
     "testImplementation"(project(Modules.coreTesting))
     "implementation"(project(Modules.core))
     "implementation"(Coil.coilCompose)
+    "implementation"(Biometric.biometric)
 }
