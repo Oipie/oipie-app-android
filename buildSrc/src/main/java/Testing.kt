@@ -18,7 +18,7 @@ object Testing {
     private const val mockWebServerVersion = "4.9.3"
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
 
-    const val composeUiTest = "androidx.compose.ui:ui-test-junit4:${Compose.composeVersion}"
+    const val composeUiTest = "androidx.compose.ui:ui-test-junit4"
 
     private const val testRunnerVersion = "1.4.0"
     const val testRunner = "androidx.test:runner:$testRunnerVersion"

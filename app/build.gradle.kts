@@ -83,6 +83,7 @@ dependencies {
 
     implementation(SplashScreen.splashScreen)
 
+    implementation(platform(Compose.composeBom))
     implementation(Compose.compiler)
     implementation(Compose.ui)
     implementation(Compose.uiToolingPreview)
@@ -92,8 +93,10 @@ dependencies {
     implementation(Compose.navigation)
     implementation(Compose.viewModelCompose)
     implementation(Compose.activityCompose)
+    debugImplementation(Compose.composeTooling)
     implementation(Compose.viewModelCompose)
     androidTestImplementation(Compose.composeJUnit)
+    androidTestImplementation(platform(Compose.composeBom))
     debugImplementation(Compose.composeManifest)
 
     // Hilt
