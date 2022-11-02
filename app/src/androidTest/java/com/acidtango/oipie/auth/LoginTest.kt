@@ -11,7 +11,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.acidtango.auth_presentation.ui.LoginScreen
 import com.acidtango.auth_presentation.viewModels.LoginVM
-import com.acidtango.core.DataStoreInterface
+import com.acidtango.core.dataStore.DataStoreInterface
 import com.acidtango.oipie.Base
 import com.acidtango.oipie.navigation.Route
 import com.google.common.truth.Truth.assertThat

@@ -1,4 +1,4 @@
-package com.acidtango.core
+package com.acidtango.core.dataStore
 
 interface DataStoreInterface {
     suspend fun writeToken(token: String)

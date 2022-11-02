@@ -5,8 +5,10 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.acidtango.core.DataStoreDefaults
-import com.acidtango.core.DataStoreInterface
+import com.acidtango.core.connectivity.ConnectivityObserver
+import com.acidtango.core.connectivity.NetworkConnectivityObserver
+import com.acidtango.core.dataStore.DataStoreDefaults
+import com.acidtango.core.dataStore.DataStoreInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,5 +31,11 @@ object AppModule {
     @Singleton
     fun provideDefaultDataStore(dataStore: DataStore<Preferences>): DataStoreInterface {
         return DataStoreDefaults(dataStore)
+    }
+
+    @Provides
+    @Singleton
+    fun provideConnectivityChecks(app: Application): ConnectivityObserver {
+        return NetworkConnectivityObserver(app)
     }
 }
