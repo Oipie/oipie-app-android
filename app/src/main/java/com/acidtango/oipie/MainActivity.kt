@@ -1,6 +1,7 @@
 package com.acidtango.oipie
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -78,9 +79,12 @@ fun Greeting() {
                         navController.navigate(Route.REGISTRATION)
                     },
                     onLogin = {
-                        navController.navigate(Route.HOME)
+                        navController.navigate(Route.HOME) {
+                            popUpTo(Route.LOGIN) {
+                                inclusive = true
+                            }
+                        }
                     }
-
                 )
             }
             composable(Route.HOME) {
