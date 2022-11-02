@@ -50,7 +50,6 @@ fun Greeting() {
     val navController = rememberNavController()
     var showBottomBar by rememberSaveable { mutableStateOf(false) }
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    var isLogged by rememberSaveable { mutableStateOf(false)}
 
     showBottomBar = listOf(
         Route.HOME,
@@ -71,19 +70,22 @@ fun Greeting() {
     ) { padding ->
         NavHost(
             navController = navController,
-            startDestination = if (isLogged) Route.HOME else Route.LOGIN,
+            startDestination = Route.LOGIN,
             modifier = Modifier.padding(padding)
         ) {
             composable(Route.LOGIN) {
-                    LoginScreen(
-                        onRegistration = {
-                            navController.navigate(Route.REGISTRATION)
-                        },
-                        onLogin = {
-                            isLogged = true
-                            navController.navigate(Route.HOME)
+                LoginScreen(
+                    onRegistration = {
+                        navController.navigate(Route.REGISTRATION)
+                    },
+                    onLogin = {
+                        navController.navigate(Route.HOME) {
+                            popUpTo(Route.LOGIN) {
+                                inclusive = true
+                            }
                         }
-                    )
+                    }
+                )
             }
             composable(Route.HOME) {
                 HomeScreen()
