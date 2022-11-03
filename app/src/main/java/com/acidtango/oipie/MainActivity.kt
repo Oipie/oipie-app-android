@@ -2,6 +2,7 @@ package com.acidtango.oipie
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -30,6 +31,8 @@ import com.acidtango.oipie.navigation.Route
 import com.acidtango.profile_presentation.ProfileScreen
 import com.acidtango.receipts_presentation.ReceiptsScreen
 import com.acidtango.search_presentation.SearchScreen
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,6 +40,20 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(
+            OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+
+                    return@OnCompleteListener
+                }
+                val token = task.result
+
+                val msg = token
+                Log.d("TOAGGGG", msg)
+                Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+            }
+        )
         setContent {
             OipieTheme {
                 Greeting()

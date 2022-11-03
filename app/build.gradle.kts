@@ -4,6 +4,7 @@ plugins {
     id(Linter.ktlint)
     id("dagger.hilt.android.plugin")
     id("kotlin-kapt")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -69,6 +70,7 @@ android {
 dependencies {
     implementation(project(Modules.coreUi))
     implementation(project(Modules.core))
+
     testImplementation(project(Modules.coreTesting))
     androidTestImplementation(project(Modules.coreTesting))
     implementation(project(Modules.home_presentation))
@@ -129,4 +131,7 @@ dependencies {
     androidTestImplementation(Testing.espressoCore)
     debugImplementation(LeakCanary.leakCanary)
 
+    implementation(platform(Firebase.firebaseBom))
+    implementation(Firebase.analytics)
+    implementation(Firebase.messaging)
 }
