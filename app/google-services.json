@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "728872416461",
+    "project_id": "oipie-bce4d",
+    "storage_bucket": "oipie-bce4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728872416461:android:6e2a9834a79f3655676584",
+        "android_client_info": {
+          "package_name": "com.acidtango.oipie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728872416461-88rth13ahf7rpkun81qpilc97o5as2qf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzgFp_yzqC_dkdsOWGtebsW44x7NR6W8M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728872416461-88rth13ahf7rpkun81qpilc97o5as2qf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
