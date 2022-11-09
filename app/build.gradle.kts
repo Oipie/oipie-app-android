@@ -128,5 +128,4 @@ dependencies {
     androidTestImplementation(Testing.testRunner)
     androidTestImplementation(Testing.espressoCore)
     debugImplementation(LeakCanary.leakCanary)
-
 }

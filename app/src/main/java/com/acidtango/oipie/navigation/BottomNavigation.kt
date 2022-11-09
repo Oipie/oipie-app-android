@@ -69,6 +69,7 @@ fun BottomNavigationBar(navController: NavController) {
     ) {
         items.forEach { item ->
 
+            val background = if (currentRoute == item.route) Purple else Color.Transparent
             CompositionLocalProvider(LocalRippleTheme provides ClearRippleTheme) {
                 Column(
                     modifier = Modifier
@@ -80,8 +81,8 @@ fun BottomNavigationBar(navController: NavController) {
                         modifier = Modifier,
                         onClick = {
                             navController.navigate(item.route) {
-                                navController.graph.startDestinationRoute?.let { screen_route ->
-                                    popUpTo(screen_route) {
+                                navController.graph.startDestinationRoute?.let { screenRoute ->
+                                    popUpTo(screenRoute) {
                                         saveState = true
                                     }
                                 }
@@ -98,7 +99,7 @@ fun BottomNavigationBar(navController: NavController) {
                                     .size(5.dp)
                                     .clip(RoundedCornerShape(25.dp))
                                     .background(
-                                        if (currentRoute == item.route) Purple else Color.Transparent
+                                        background
                                     )
                             )
                             Spacer(modifier = Modifier.height(3.dp))
@@ -111,20 +112,29 @@ fun BottomNavigationBar(navController: NavController) {
 
                             Spacer(modifier = Modifier.height(5.dp))
 
-                            if (currentRoute == item.route) {
-                                Text(
-                                    item.title.toUpperCase(Locale.current),
-                                    style = TextStyle(fontSize = 10.sp),
-                                    fontWeight = FontWeight.Medium,
-                                    color = if (currentRoute == item.route) Purple else Color.Black
-                                )
-                            }
+                            BottomText(currentRoute, item)
                             Spacer(modifier = Modifier.height(10.dp))
                         }
                     }
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun BottomText(
+    currentRoute: String?,
+    item: BottomNavItem
+) {
+    val color = if (currentRoute == item.route) Purple else Color.Black
+    if (currentRoute == item.route) {
+        Text(
+            item.title.toUpperCase(Locale.current),
+            style = TextStyle(fontSize = 10.sp),
+            fontWeight = FontWeight.Medium,
+            color = color
+        )
     }
 }
 
