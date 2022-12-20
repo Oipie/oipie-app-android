@@ -1,5 +1,6 @@
 package com.acidtango.auth_presentation.ui
 
+import androidx.biometric.BiometricPrompt
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,15 +12,16 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentActivity
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.acidtango.auth_presentation.ui.components.EmailPasswordSet
 import com.acidtango.auth_presentation.viewModels.LoginVM
@@ -31,6 +33,38 @@ fun LoginScreen(
     onLogin: () -> Unit,
     onRegistration: () -> Unit
 ) {
+
+    val context = LocalContext.current as FragmentActivity
+    val executor = ContextCompat.getMainExecutor(LocalContext.current)
+    val promptInfo = BiometricPrompt.PromptInfo.Builder()
+        .setTitle("Biometric Authentication")
+        .setSubtitle("Unlock using your biometric credential")
+        .setNegativeButtonText("Cancel")
+        .build()
+
+    val biometricPromt =
+        BiometricPrompt(
+            context,
+            executor,
+            object : BiometricPrompt.AuthenticationCallback() {
+
+                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                    super.onAuthenticationError(errorCode, errString)
+                }
+
+                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                    super.onAuthenticationSucceeded(result)
+                    viewModel.readToken()
+                    onLogin()
+                }
+
+                override fun onAuthenticationFailed() {
+                    super.onAuthenticationFailed()
+                }
+            }
+        )
+
+
 
     Surface() {
         Column(
@@ -52,8 +86,9 @@ fun LoginScreen(
             Spacer(modifier = Modifier.height(24.dp))
             Button(
                 onClick = {
-                    viewModel.readToken()
-                    onLogin()
+                    biometricPromt.authenticate(promptInfo)
+                    /*viewModel.readToken()
+                    onLogin()*/
                 },
                 modifier = Modifier
                     .fillMaxWidth()
