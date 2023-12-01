@@ -1,7 +1,7 @@
 object Compose {
     const val composeCompilerVersion = "1.3.2"
     const val compiler = "androidx.compose.compiler:compiler:$composeCompilerVersion"
-    const val composeBom = "androidx.compose:compose-bom:2022.10.00"
+    const val composeBom = "androidx.compose:compose-bom:2023.10.01"
 
     const val material = "androidx.compose.material:material"
     const val ui = "androidx.compose.ui:ui"
